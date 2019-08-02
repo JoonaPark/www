@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+<h2>자바스크립트 객체</h2>
+<p> 우리집 고양이 키티 </p>
+<p id="showw"></p>
+<script>
+// 객체 정의
+var cat = {
+    name: "키티",
+    color: "하얀색",
+    play: function() {
+     return this.name + "는 " + this.color + " 냥이 인데요." +
+     "혼자서도 잘 놀아요ㅠㅠ";
+    }
+};
+document.getElementById("showw").innerHTML = cat.play();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<STYLE>table.convTable tr td{font-size:18pt;color:040;background:daf4da}</STYLE> // 개별 테이블에 스타일 지정
+<SCRIPT>
+var str=''; // 출력 변수 선언
+str+='<TABLE cellspacing=0 cellpadding=1><TR>'; // 전체 테이블 시작
+
+for (hxp=0;hxp<5;hxp++){ // 16진수를 중심으로 승을 0에서 4승까지 1씩 증가하는 루프
+  str+='<TD><TABLE border=1 cellpadding=1 cellspacing=0 class=convTable>'; // 개별 테이블 시작
+  var nfrom=Math.pow(16,hxp)+Math.pow(16,hxp-1)*16-1; // 각 개별 테이블 시작 수치 nfff가 되게 환산
+  str+='<TR align=center><TD>Hex</TD><TD>Dec</TD><TD>Bin</TD></TR>'; // 개별 테이블 제목 넣기
+  for (i=nfrom;i<Math.pow(16,(hxp+1));i+=Math.pow(16,hxp)){
+      // 개별 테이블의 승을 계산하여 테이블을 완성시키는 루프
+    str+='<TR><TD align=center>'+i.toString(16)+'</TD>'; // 16진수 문자열로 환산
+    str+='<TD align=right>'+i.toString(10).fontcolor("0000aa")+'</TD>';
+      // 10진수 문자열로 환산 .toString(10)는 생략하여도 됨, 출력 글자 색상 변경
+    str+='<TD align=right><SMALL>'+i.toString(2)+'</SMALL></TD></TR>'; // 2진수 문자열로 환산
+  } // 개별 테이블 마감
+  str+='</TABLE></TD>'; // 개별 테이블 닫음
+} // 전체 테이블 마감
+str+='</TR></TABLE>'; // 전체 테이블 닫음
+
+document.write(str); // 결과 문자열 출력
+</SCRIPT>
+
+<SCRIPT>
+var str=''; // 출력 문자열 변수 선언
+var ver=Number(ScriptEngineMajorVersion()+'.'+ScriptEngineMinorVersion()); // Javascript  버전을 얻음
+
+str+=ScriptEngine()+' ver='+ver.toString().bold().fontcolor("red")+'.'; // Javascript 엔진과 버전 번호를 글꼴, 색상변경하여 출력
+str+=ScriptEngineBuildVersion().toString().fontcolor("green")+'으로 '; // Javascript 빌드 번호를 글꼴, 색상변경하여 출력
+
+if (ver>=5.5) str+='본 교재 작업이 가능하다.'; // Javascript 버전이 5.5 이상이면
+else str+='작업을 하려면 새로운 버전의 Javascript가 필요하다.'; // 버전이 5.5 미만이면 경고
+
+document.write(str); // 결과 문자열 출력
+</SCRIPT>

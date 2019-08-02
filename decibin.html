@@ -1,0 +1,37 @@
+
+<FORM name=hexaform>
+<SELECT name=fromsel>
+<OPTION value="16">16진수
+<OPTION value="10" selected>10진수
+<OPTION value="8">8진수
+<OPTION value="2">2진수
+</SELECT>
+<INPUT type=text name=hexain value=100></INPUT>을/를
+<SELECT name=tosel>
+<OPTION value="16">16진수
+<OPTION value="10">10진수
+<OPTION value="8">8진수
+<OPTION value="2">2진수
+</SELECT>로
+<INPUT type=button value="환산" onClick=Convert(this.form)>
+</FORM>
+
+
+
+<DIV id="showarea" class=show title="결과">결과 표시창<BR>
+
+<SCRIPT>
+br='<BR>';
+function Convert(obj){ // 입력폼 개체(obj=document.forms.hexaform)를 인수로 받아 수행하는 기능함수 시작
+  str=''; // 출력을 위한 문자열 변수 선언
+  typefrom=obj.fromsel.value; // 무슨 진수에서 환산을 수치로 반환 받는다.
+  typeto=obj.tosel.value; // 무슨 진수로 환산을 수치로 반환 받는다.
+  valfrom=obj.hexain.value; // 환산할 입력 수치 문자열을 받는다.
+  decifrom=parseInt(valfrom,typefrom); // 무조건 10진수로 환산한다.
+  valto=decifrom.toString(typeto); // 해당 원하는 지수로 환산하여 수치 문자열을 만든다.
+  str+='<SPAN class=bblue>'+valfrom+'</SPAN>('+typefrom+'진수)'; // 무슨 진수에서 무엇을 환산할 것인가 출력한다.
+  if (typefrom!=10) str+='[=10진수('+decifrom+')]'; // 입력이 10진수이면 10진수 추가 설명을 생략한다.
+  str+='을/를 환산하면 ⇒<SPAN class=bred>'+valto+'</SPAN>('+typeto+'진수)'; // 원하는 환산된 문자열을 출력한다.
+  showarea.innerHTML=str; // 결과 환산된 문자열을 출력한다.
+} // 기능함수 종료
+</SCRIPT>

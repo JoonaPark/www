@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>자바스크립트 계산기</title>
+<script>
+function add(){
+    var n1 = parseInt(document.getElementById("num1").value);
+    var n2 = parseInt(document.getElementById("num2").value);
+    sum = n1+n2;
+    document.getElementById("result").value = sum;
+    }
+function sub(){
+    var n1 = parseInt(document.getElementById("num1").value);
+    var n2 = parseInt(document.getElementById("num2").value);
+    sub = n1-n2;
+    document.getElementById("result").value = sub;
+    }
+function mul(){
+
+    var n1 = parseInt(document.getElementById("num1").value);
+
+    var n2 = parseInt(document.getElementById("num2").value);
+
+    mul = n1*n2;
+
+    document.getElementById("result").value = mul;
+
+    }
+
+function div(){
+
+    var n1 = parseInt(document.getElementById("num1").value);
+
+    var n2 = parseInt(document.getElementById("num2").value);
+
+    div = n1/n2;
+
+    document.getElementById("result").value = div;
+
+    }
+
+</script>
+</head>
+
+<body>
+<h2>자바스크립트 계산기</h2>
+<table>
+
+<tr>
+
+     <td>num1</td>
+
+     <td><input type = "text" id = "num1" size = 10"></td>
+
+</tr>
+
+      <td>num2</td>
+
+      <td><input type="text" id = "num2" size = "10"></td>
+
+<tr>
+
+      <th colspan = 2><input type = "button" value = "+" onclick="add()">
+
+      <input type = "button" value = "-" onclick="sub()">
+
+      <input type = "button" value = "*" onclick="mul()">
+
+      <input type = "button" value = "/" onclick="div()">
+
+      </th>
+
+</tr>
+
+<tr>
+
+      <td>restult</td>
+
+      <td><input type="text" id = "result" size= "10"></td>
+</tr>
+</table>
+</body>
+</html>
+
+1. 자바스크립트는 head에 넣었습니다. 이렇게 따로 분리해 두는 것이 기능을 추가할 때 용이하기 때     문입니다. 자바스크립트는 4칙연산 함수 4개를 가지고 있습니다.
+
+2. 아마 parseInt란 함수를 처음 보는 분들도 있을 텐데 이 함수는 브라우저 자체에 내장된 함수로 문자     열을 숫자로 바꾸어 주는 역할을 합니다. <input>에 입력된 것은 문자열이기때문에 계산을 위해서       숫자로 바꾸어 주는 것이지요.
+   parseInt(document.getElementById("num1").value);
+
+3. 눈에는 보이지 않지만 정렬을 위해 <table>을 사용했습니다. 잘 모르시는 분들은 html 게시판의         table 파트를 참조해 주세요.
+
+4. onclick 도 내장된 함수로 클릭하면 지정된 함수를 실행합니다. 각각의 버튼이 head안의 사칙연산       함수를 실행하도록 해 줍니다.
+    onclick="add()"
